@@ -1,7 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity^0.8.20;
+import "./NahidToken.sol";
 
 contract NahidTokenSale{
+    NahidToken public token;
     uint256 public tokenPrice = 0.01 ether;
     uint256 public totalEthRaised;
     uint256 public totalTransactions;
@@ -10,9 +12,12 @@ contract NahidTokenSale{
 
     event TokenPurchased(address buyer,uint256 ethAmount,uint256 tokenAmount);
 
-    constructor (){
-         owner = msg.sender;
-    }
+    constructor(address tokenAddress) {
+
+    owner = msg.sender;
+
+    token = NahidToken(tokenAddress);
+}
     
     modifier onlyOwner(){
            require(msg.sender== owner,"Only owner can call this function");

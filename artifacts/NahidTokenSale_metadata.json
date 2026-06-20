@@ -6,7 +6,13 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [],
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "tokenAddress",
+						"type": "address"
+					}
+				],
 				"stateMutability": "nonpayable",
 				"type": "constructor"
 			},
@@ -67,6 +73,19 @@
 				"outputs": [
 					{
 						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "token",
+				"outputs": [
+					{
+						"internalType": "contract NahidToken",
 						"name": "",
 						"type": "address"
 					}
@@ -148,12 +167,20 @@
 		"remappings": []
 	},
 	"sources": {
-		"NahidTokenSale.sol": {
-			"keccak256": "0x1e6f0a06debf66287276e54f642b2da8bb191ba92477c3b9ae1f967625e11d40",
+		"NahidToken.sol": {
+			"keccak256": "0x09f6b3e4a4f918531b713fb19cc289d11541c4d283631380ea679b0a707fa8a7",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://68823d3af430d32931a3c8bc9d12ce8d67cc95de936b335db277b98cb9cd5bce",
-				"dweb:/ipfs/QmY1pzSEc2F2dsXp1jDVym6shdd3EbC3BhmKbBYKdhr97A"
+				"bzz-raw://b9cafcaa222bc19093503358c8d98065f9de5422bb9dc1940982c46069c32db4",
+				"dweb:/ipfs/QmUKdUSbw3nL2fvv8yn1X9DyUfLY5ihZQJnbvdVbU8o8CD"
+			]
+		},
+		"NahidTokenSale.sol": {
+			"keccak256": "0xf48573057986b48036b7721ac906ddf85c1a7dee1aa78c34bad3b8183290db02",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://907ae0640125d382eb093a938233c18180b39e72efecb9399838716b7409eb7d",
+				"dweb:/ipfs/QmemUHXoQgEUTkqTzxo6CaJMq4UVP9uRexG1UuaFN6Zjo7"
 			]
 		}
 	},
