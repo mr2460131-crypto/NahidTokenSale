@@ -8,14 +8,12 @@ contract NahidTokenSale{
     uint256 public totalEthRaised;
     uint256 public totalTransactions;
     address public owner;
+    
     mapping(address => uint256) public balances;
-
     event TokenPurchased(address buyer,uint256 ethAmount,uint256 tokenAmount);
 
     constructor(address tokenAddress) {
-
     owner = msg.sender;
-
     token = NahidToken(tokenAddress);
 }
     
@@ -24,18 +22,20 @@ contract NahidTokenSale{
         _;
     }
 
-    function buyToken()public payable{
+    function buyToken() public payable {
+    require(msg.value > 0, "ETH amount must be greater than 0");
+    uint256 tokensToBuy = msg.value / tokenPrice;
 
-    require(msg.value >0,"ETH amount must be greater than 0");
-    uint256 tokensToBuy = msg.value/tokenPrice;
-    require(token.transferFrom(owner,msg.sender,tokensToBuy),"Token transfer failed");
+    require(token.allowance(owner, address(this)) >= tokensToBuy,"Not enough allowance from owner");
+    require(token.transferFrom(owner, msg.sender, tokensToBuy),"Token transfer failed");
+
     totalEthRaised += msg.value;
     totalTransactions++;
 
-    emit TokenPurchased(msg.sender,msg.value,tokensToBuy);
-}
+    emit TokenPurchased(msg.sender, msg.value, tokensToBuy);
+    }
 
    function withdraw() public onlyOwner{
-    payable(owner).transfer(address(this).balance);   
-}
+       payable(owner).transfer(address(this).balance);   
+    }
 }
