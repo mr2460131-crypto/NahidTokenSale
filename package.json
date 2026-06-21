@@ -1,0 +1,24 @@
+{
+  "name": "nahidtokensale",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mr2460131-crypto/NahidTokenSale.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mr2460131-crypto/NahidTokenSale/issues"
+  },
+  "homepage": "https://github.com/mr2460131-crypto/NahidTokenSale#readme",
+  "description": "",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^6.1.2",
+    "hardhat": "^2.22.15"
+  }
+}

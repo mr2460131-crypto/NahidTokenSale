@@ -25,16 +25,17 @@ contract NahidTokenSale{
     }
 
     function buyToken()public payable{
-        require(msg.value >0,"ETH amount must be greater than 0");
-        uint256 tokensToBuy = msg.value/tokenPrice;
-        balances[msg.sender]+= tokensToBuy;
 
-        totalEthRaised += msg.value;
-        totalTransactions++;
-        emit TokenPurchased(msg.sender,msg.value, tokensToBuy);
-    }
+    require(msg.value >0,"ETH amount must be greater than 0");
+    uint256 tokensToBuy = msg.value/tokenPrice;
+    require(token.transferFrom(owner,msg.sender,tokensToBuy),"Token transfer failed");
+    totalEthRaised += msg.value;
+    totalTransactions++;
+
+    emit TokenPurchased(msg.sender,msg.value,tokensToBuy);
+}
 
    function withdraw() public onlyOwner{
-           payable(owner).transfer(address(this).balance);   
-   } 
+    payable(owner).transfer(address(this).balance);   
+}
 }
