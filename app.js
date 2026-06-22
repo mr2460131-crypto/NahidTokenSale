@@ -1,6 +1,6 @@
 // ===== Contract Info =====
-const TOKEN_ADDRESS = "0x6c811F30c2Ac4972Aa4173A3b7D648e0eA3E082f";
-const SALE_ADDRESS = "0x1C824a5551197cefd866538678313a7e86305F4C";
+const TOKEN_ADDRESS = "0xE362b1fEebEbD4D47DC1838b061A05bEE52C0C19";
+const SALE_ADDRESS = "0x13e9b01d03795eC816EB91111B95D7F277522964";
 
 const TOKEN_ABI = [
     "function balanceOf(address account) view returns (uint256)",
@@ -50,6 +50,9 @@ async function connectWallet() {
         statusElement.textContent = "Connecting...";
 
         provider = new ethers.BrowserProvider(window.ethereum);
+
+        // ✅ এই line change হয়েছে — account selection popup আসবে
+        await provider.send("wallet_requestPermissions", [{ eth_accounts: {} }]);
         await provider.send("eth_requestAccounts", []);
 
         signer = await provider.getSigner();

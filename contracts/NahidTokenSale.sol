@@ -25,6 +25,7 @@ contract NahidTokenSale{
     function buyToken() public payable {
     require(msg.value > 0, "ETH amount must be greater than 0");
     uint256 tokensToBuy = msg.value / tokenPrice;
+    require(tokensToBuy > 0, "Minimum 0.01 ETH required to buy 1 token");
 
     require(token.allowance(owner, address(this)) >= tokensToBuy,"Not enough allowance from owner");
     require(token.transferFrom(owner, msg.sender, tokensToBuy),"Token transfer failed");
