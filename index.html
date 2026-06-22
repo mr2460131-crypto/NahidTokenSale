@@ -7,20 +7,17 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  
-    
+
 <div class="container">
-    
+
     <h1>Token Sale DApp</h1>
-      <p class="subtitle">
-    Buy ERC20 Tokens Using ETH
-</p>
+    <p class="subtitle">Buy ERC20 Tokens Using ETH</p>
 
     <div class="card">
         <h3>Wallet Address</h3>
-        <p id="wallet">
-            Not Connected
-        </p>
+        <p id="wallet">Not Connected</p>
+        <!-- ✅ নতুন: Connect Wallet button -->
+        <button id="connectBtn">Connect Wallet</button>
     </div>
 
     <div class="card">
@@ -35,36 +32,33 @@
 
     <div class="card">
         <h3>Buy Tokens</h3>
-
         <input
             type="number"
             id="ethAmount"
             placeholder="Enter ETH Amount"
         >
-
-        <button id="buyBtn">
-            Buy Tokens
-        </button>
+        <button id="buyBtn">Buy Tokens</button>
     </div>
 
     <div class="card">
         <h3>Status</h3>
-        <p id="status">
-            Waiting for action...
-        </p>
+        <p id="status">Waiting for action...</p>
     </div>
+
     <div class="card">
-    <h3>Total ETH Spent</h3>
-    <p id="totalEth">0 ETH</p>
+        <h3>Total ETH Raised</h3>
+        <p id="totalEth">0 ETH</p>
+    </div>
+
+    <div class="card">
+        <h3>Purchase History</h3>
+        <ul id="history"></ul>
+    </div>
+
 </div>
 
-<div class="card">
-    <h3>Purchase History</h3>
-    <ul id="history"></ul>
-</div>
-
-</div>
-
+<!-- ✅ নতুন: ethers.js CDN (app.js এর আগে) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.13.4/ethers.umd.min.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
